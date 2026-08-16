@@ -22,7 +22,7 @@ jobs:
         run: uv sync
 
       - name: Generate code from .proto
-        run: bash scripts/generate_proto.sh
+        run: uv run bash scripts/generate_proto.sh
 
       - name: Run ruff check
         run: uv run ruff check kvstore
