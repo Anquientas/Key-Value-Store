@@ -13,7 +13,8 @@ dependencies = [
 [tool.ruff]
 line-length = 78
 target-version = "py313"
-src = ["kvstore", "proto", "scrypts"]
+src = ["kvstore", "proto", "scripts"]
+extend-exclude = ["kvstore/generated"]
 
 [tool.ruff.format]
 skip-magic-trailing-comma = false

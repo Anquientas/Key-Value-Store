@@ -20,7 +20,6 @@ RUN pip install --no-cache-dir grpcio protobuf
 COPY --from=builder /app/kvstore/generated ./kvstore/generated
 COPY kvstore ./kvstore
 
-# Порт 8000 — по условию задания, не дефолтный gRPC-порт (50051).
 EXPOSE 8000
 
 CMD ["python", "-m", "kvstore.server"]

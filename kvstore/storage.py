@@ -23,9 +23,7 @@ class LRUTTLStore:
     async def put(self, key: str, value: str, ttl_seconds: int) -> None:
         async with self._lock:
             expires_at = (
-                None
-                if ttl_seconds == 0
-                else time.monotonic() + ttl_seconds
+                None if ttl_seconds == 0 else time.monotonic() + ttl_seconds
             )
             self._data[key] = _Entry(value=value, expires_at=expires_at)
             self._data.move_to_end(key)
