@@ -1,4 +1,6 @@
+import asyncio
 import time
+from collections import OrderedDict
 from dataclasses import dataclass
 
 from kvstore.constants import StorageErrorMessage
@@ -17,6 +19,8 @@ class LRUTTLStore:
                 StorageErrorMessage.invalid_capacity.format(capacity=capacity)
             )
         self._capacity = capacity
+        self._data: OrderedDict[str, _Entry] = OrderedDict()
+        self._lock = asyncio.Lock()
 
     async def put(self, key: str, value: str, ttl_seconds: int) -> None:
         async with self._lock:
