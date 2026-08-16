@@ -20,7 +20,7 @@ class KeyValueStoreServicer(kvstore_pb2_grpc.KeyValueStoreServicer):
     async def Get(
         self,
         request: kvstore_pb2.GetRequest,
-        context: grpc.aio.ServicerContext
+        context: grpc.aio.ServicerContext,
     ) -> kvstore_pb2.GetResponse:
         value = await self._store.get(request.key)
         if value is None:
@@ -33,7 +33,7 @@ class KeyValueStoreServicer(kvstore_pb2_grpc.KeyValueStoreServicer):
     async def Delete(
         self,
         request: kvstore_pb2.DeleteRequest,
-        context: grpc.aio.ServicerContext
+        context: grpc.aio.ServicerContext,
     ) -> kvstore_pb2.DeleteResponse:
         await self._store.delete(request.key)
         return kvstore_pb2.DeleteResponse()
@@ -41,7 +41,7 @@ class KeyValueStoreServicer(kvstore_pb2_grpc.KeyValueStoreServicer):
     async def List(
         self,
         request: kvstore_pb2.ListRequest,
-        context: grpc.aio.ServicerContext
+        context: grpc.aio.ServicerContext,
     ) -> kvstore_pb2.ListResponse:
         items = await self._store.list_by_prefix(request.prefix)
         return kvstore_pb2.ListResponse(

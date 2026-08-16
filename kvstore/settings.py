@@ -2,9 +2,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="KVSTORE_", env_file=".env")
+    model_config = SettingsConfigDict(env_prefix='KVSTORE_', env_file='.env')
 
-    HOST: str = "[::]"
+    HOST: str = '[::]'
     PORT: int = 8000
 
     LRU_CAPACITY: int = 10

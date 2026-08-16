@@ -14,9 +14,7 @@ class LRUTTLStore:
     def __init__(self, capacity: int = 10) -> None:
         if capacity <= 0:
             raise ValueError(
-                StorageErrorMessage.invalid_capacity.format(
-                    capacity=capacity
-                )
+                StorageErrorMessage.invalid_capacity.format(capacity=capacity)
             )
         self._capacity = capacity
 

@@ -12,7 +12,7 @@ from kvstore.storage import LRUTTLStore
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    format='%(asctime)s %(levelname)s %(name)s: %(message)s',
 )
 logger = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ async def serve() -> None:
     kvstore_pb2_grpc.add_KeyValueStoreServicer_to_server(
         KeyValueStoreServicer(store), server
     )
-    listen_address = f"{settings.HOST}:{settings.PORT}"
+    listen_address = f'{settings.HOST}:{settings.PORT}'
     server.add_insecure_port(listen_address)
 
     await server.start()
@@ -42,5 +42,5 @@ async def serve() -> None:
     logger.info(ServerLogMessage.stopped)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(serve())
