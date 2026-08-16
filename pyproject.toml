@@ -1,0 +1,26 @@
+[project]
+name = "key-value-store"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "grpcio>=1.83.0",
+    "grpcio-tools>=1.83.0",
+    "pydantic-settings>=2.15.0",
+    "ruff>=0.16.3",
+]
+
+[tool.ruff]
+line-length = 78
+target-version = "py313"
+src = ["kvstore", "proto", "scrypts"]
+
+[tool.ruff.format]
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4"]
+ignore = ["B008", "UP046"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["kvstore"]
