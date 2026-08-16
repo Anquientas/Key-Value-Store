@@ -5,8 +5,13 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "grpcio>=1.83.0",
-    "grpcio-tools>=1.83.0",
+    "protobuf>=5.27",
     "pydantic-settings>=2.15.0",
+]
+
+[dependency-groups]
+dev = [
+    "grpcio-tools>=1.83.0",
     "ruff>=0.16.3",
 ]
 

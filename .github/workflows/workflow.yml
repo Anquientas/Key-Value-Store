@@ -19,7 +19,7 @@ jobs:
           version: "latest"
 
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --group dev
 
       - name: Generate code from .proto
         run: uv run bash scripts/generate_proto.sh
